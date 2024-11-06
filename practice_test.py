@@ -41,20 +41,39 @@ for num in range(1, 201):
 
 # 4
 answer_list: list[str] = []
-popular_list: list[str] = []
+counts: list[int] = [0, 0, 0, 0]
 while True:
     answer: str = input("Enter your answer: ")
     if answer == "x":
         break
     if answer != "a" and answer != "b" and answer != "c" and answer != "d":
         continue
-    answer_list.append(answer)
-count_a: int = answer_list.count('a')
-count_b: int = answer_list.count('b')
-count_c: int = answer_list.count('c')
-count_d: int = answer_list.count('d')
-counts: list[int] = [count_a,count_b,count_c, count_d]
-print(f"{count_a} students picked a, {count_b} students picked b, {count_c} students picked c, {count_d} students picked d")
+    if answer == "a":
+        counts[0] += 1
+    if answer == "b":
+        counts[1] += 1
+    if answer == "c":
+        counts[2] += 1
+    if answer == "d":
+        counts[3] += 1
+print(f"{counts[0]} students picked a,{counts[1]} students picked b,{counts[2]} students picked c,{counts[3]} students picked d.")
+if max(counts) == counts[0]:
+    print(f"a was the most popular answer, {counts[0]} students picked it")
+elif max(counts) == counts[1]:
+    print(f"b was the most popular answer, {counts[1]} students picked it")
+elif max(counts) == counts[2]:
+    print(f"c was the most popular answer, {counts[2]} students picked it")
+else:
+    print(f"d was the most popular answer, {counts[3]} students picked it")
+
+if min(counts) == counts[0]:
+    print(f"a was the least popular answer, {counts[0]} students picked it")
+elif min(counts) == counts[1]:
+    print(f"b was the least popular answer, {counts[1]} students picked it")
+elif min(counts) == counts[2]:
+    print(f"c was the least popular answer, {counts[2]} students picked it")
+else:
+    print(f"d was the least popular answer, {counts[3]} students picked it")
 
 
 # STOP
